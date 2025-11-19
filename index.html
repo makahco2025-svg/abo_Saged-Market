@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسواق ابو ساجد</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Internal CSS -->
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #4CAF50; /* Green */
+            --secondary-color: #f44336; /* Red */
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --text-color: #555;
+            --font-family: 'Cairo', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #3d8b40;
+        }
+
+        /* Header */
+        .main-header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+
+        .main-nav ul {
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        .main-nav ul li a {
+            color: var(--dark-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .main-nav ul li a.active, .main-nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -12px;
+            background: var(--secondary-color);
+            color: #fff;
+            font-size: 0.8rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- NEW: Search & Categories Bar --- */
+        .search-categories-bar {
+            background: #f9f9f9;
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+            position: sticky;
+            top: 80px; /* Height of main header */
+            z-index: 999;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .search-bar input {
+            width: 100%;
+            max-width: 500px;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-left: none;
+            border-radius: 5px 0 0 5px;
+            font-family: var(--font-family);
+            transition: border-color 0.3s;
+        }
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .search-bar button {
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-family: var(--font-family);
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+        .search-bar button:hover {
+            background: #3d8b40;
+        }
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .category-nav a {
+            padding: 0.5rem 1.5rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-weight: 700;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .category-nav a:hover, .category-nav a.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Page Sections (Hidden by default) */
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/banner.jpg') no-repeat center center/cover;
+            height: 60vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .banner-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .banner-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- PROFESSIONAL Best Offers Slider --- */
+        .offers-section {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        .offers-section .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+        .offers-slider-container {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0; /* Give space for arrows */
+        }
+        .offers-slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 1.5rem; /* Modern way for spacing */
+        }
+        .offer-slide {
+            min-width: 280px; /* Width of each product card */
+            flex-shrink: 0; /* Prevents shrinking */
+        }
+        .offers-section .product-card {
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .offers-section .product-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Professional Arrows */
+        .offers-slider-container .prev, .offers-slider-container .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            z-index: 2;
+        }
+        .offers-slider-container .prev {
+            right: 20px;
+        }
+        .offers-slider-container .next {
+            left: 20px;
+        }
+        .offers-slider-container .prev:hover, .offers-slider-container .next:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Dots */
+        .offers-slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+
+        /* Page Main Content */
+        .page-main {
+            padding: 4rem 0;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .product-card .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart-btn {
+            background: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-family: var(--font-family);
+            font-weight: 700;
+            transition: background 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #d32f2f;
+        }
+
+        /* Cart Page Styles */
+        .cart-items-container {
+            margin-bottom: 2rem;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        .cart-item .item-details {
+            color: #666;
+        }
+        .cart-item .remove-btn {
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .cart-summary {
+            text-align: left;
+            padding: 1rem;
+            background: var(--light-color);
+            border-radius: 5px;
+        }
+        .cart-summary h3 {
+            font-size: 1.5rem;
+        }
+
+        /* Checkout Form Styles */
+        .checkout-form {
+            max-width: 600px;
+            margin: auto;
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: var(--font-family);
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .submit-order-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .submit-order-btn:hover {
+            background: #3d8b40;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: #fff;
+            padding: 4rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a i {
+            margin-left: 1rem;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover i {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media(max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+            }
+            
+            .main-nav {
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .main-nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                left: 1.5rem;
+            }
+
+            .main-nav {
+                display: none;
+            }
+            
+            .main-nav.is-active {
+                display: block;
+            }
+
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+
+            .offer-slide {
+                min-width: 250px; /* Slightly smaller on mobile */
+            }
+
+            .search-categories-bar {
+                top: 140px; /* Adjust for stacked header */
+            }
+            .category-nav {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 0.5rem; /* for scrollbar space */
+            }
+            .category-nav::-webkit-scrollbar {
+                height: 6px;
+            }
+            .category-nav::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+            .category-nav::-webkit-scrollbar-thumb {
+                background: #ccc;
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">اسواق ابو ساجد</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a class="nav-link active" data-page="home">الرئيسية</a></li>
+                    <li><a class="nav-link" data-page="vegetables">خضروات وفاكهة</a></li>
+                    <li><a class="nav-link" data-page="poultry">دواجن</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" id="cart-icon-trigger">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- NEW: Search & Categories Bar -->
+    <div class="search-categories-bar">
+        <div class="container">
+            <div class="search-bar">
+                <input type="search" id="search-input" placeholder="ابحث عن منتج...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="category-nav">
+                <a href="#" class="category-link active" data-category="all">الكل</a>
+                <a href="#" class="category-link" data-category="خضروات">خضروات</a>
+                <a href="#" class="category-link" data-category="فواكه">فواكه</a>
+                <a href="#" class="category-link" data-category="دواجن">دواجن</a>
+                <a href="#" class="category-link" data-category="بيض">بيض</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <!-- Home Page Section -->
+        <section id="home" class="page-section active">
+            <!-- Professional Banner -->
+            <section class="banner">
+                <div class="banner-content">
+                    <h1>أجود المنتجات الطازجة توصيل لباب بيتك</h1>
+                    <p>اكتشف تشكيلتنا المميزة من الخضروات والفواكه والدواجن الطازجة</p>
+                    <a class="btn" id="shop-now-btn">تسوق الآن</a>
+                </div>
+            </section>
+
+            <!-- PROFESSIONAL Best Offers Slider Section -->
+            <section class="offers-section">
+                <div class="container">
+                    <h2 class="section-title">أفضل العروض</h2>
+                    <div class="offers-slider-container" id="offers-slider-container">
+                        <div class="offers-slider-wrapper" id="offers-slider-wrapper">
+                            <!-- Offer Slide 1 -->
+                            <div class="offer-slide">
+                                <div class="product-card">
+                                    <img src="images/tomato.jpg" alt="طماطم">
+                                    <h3>طماطم طازجة</h3>
+                                    <p class="price">30 ج.م / كجم</p>
+                                    <button class="add-to-cart-btn" data-name="طماطم طازجة" data-price="30">أضف للسلة</button>
+                                </div>
+                            </div>
+                            <!-- Offer Slide 2 -->
+                            <div class="offer-slide">
+                                <div class="product-card">
+                                    <img src="images/chicken-breast.jpg" alt="صدر دجاج">
+                                    <h3>صدر دجاج منزوع العظم</h3>
+                                    <p class="price">165 ج.م / كجم</p>
+                                    <button class="add-to-cart-btn" data-name="صدر دجاج منزوع العظم" data-price="165">أضف للسلة</button>
+                                </div>
+                            </div>
+                            <!-- Offer Slide 3 -->
+                            <div class="offer-slide">
+                                <div class="product-card">
+                                    <img src="images/apple.jpg" alt="تفاح">
+                                    <h3>تفاح أحمر</h3>
+                                    <p class="price">55 ج.م / كجم</p>
+                                    <button class="add-to-cart-btn" data-name="تفاح أحمر" data-price="55">أضف للسلة</button>
+                                </div>
+                            </div>
+                            <!-- Offer Slide 4 -->
+                            <div class="offer-slide">
+                                <div class="product-card">
+                                    <img src="images/eggs.jpg" alt="بيض">
+                                    <h3>بيض أبيض</h3>
+                                    <p class="price">75 ج.م / 30 بيضة</p>
+                                    <button class="add-to-cart-btn" data-name="بيض أبيض" data-price="75">أضف للسلة</button>
+                                </div>
+                            </div>
+                             <!-- Offer Slide 5 -->
+                             <div class="offer-slide">
+                                <div class="product-card">
+                                    <img src="images/بطاطس.jpg" alt="بطاطس">
+                                    <h3>بطاطس</h3>
+                                    <p class="price">20 ج.م / كجم</p>
+                                    <button class="add-to-cart-btn" data-name="بطاطس" data-price="20">أضف للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation Arrows -->
+                        <a class="prev" id="offers-prev">&#10094;</a>
+                        <a class="next" id="offers-next">&#10095;</a>
+                    </div>
+                    <!-- Dots Container -->
+                    <div class="offers-slider-dots" id="offers-slider-dots"></div>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- Vegetables Page Section -->
+        <section id="vegetables" class="page-section">
+            <div class="page-main">
+                <div class="container">
+                    <h1 class="page-title">عروض الخضروات والفاكهة</h1>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <img src="images/tomato.jpg" alt="طماطم">
+                            <h3>طماطم طازجة</h3>
+                            <p class="price">5 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="طماطم طازجة" data-price="5">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/cucumber.jpg" alt="خيار">
+                            <h3>خيار</h3>
+                            <p class="price">18 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="خيار" data-price="18">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/بطاطس.jpg" alt="بطاطس">
+                            <h3>بطاطس</h3>
+                            <p class="price">10 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="بطاطس" data-price="10">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/بصل ابيض.jpg" alt="بصل ابيض">
+                            <h3>بصل ابيض</h3>
+                            <p class="price">15 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="بصل ابيض" data-price="15">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/بصل احمر.jpg" alt="بصل احمر">
+                            <h3>بصل احمر</h3>
+                            <p class="price">13 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="بصل احمر" data-price="13">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/باذنجان رومى.jpg" alt="باذنجان رومى">
+                            <h3>باذنجان رومى</h3>
+                            <p class="price">13 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="باذنجان رومى" data-price="13">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/باذنجان ابيض.jpg" alt="باذنجان أبيض">
+                            <h3>باذنجان أبيض</h3>
+                            <p class="price">13 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="باذنجان ابيض" data-price="13">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/باذنجان اسود.jpg" alt="باذنجان اسود">
+                            <h3>باذنجان اسود</h3>
+                            <p class="price">13 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="باذنجان اسود" data-price="13">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/فلفل رومى.jpg" alt="فلفل رومى">
+                            <h3>فلفل رومى</h3>
+                            <p class="price">15 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="فلفل رومى" data-price="15">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/فلفل حامى.jpg" alt="فلفل حامى">
+                            <h3>فلفل حامى</h3>
+                            <p class="price">15 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="فلفل حامى" data-price="15">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/فلفل اسبانى.jpg" alt="فلفل اسبانى">
+                            <h3>فلفل اسبانى</h3>
+                            <p class="price">15 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="فلفل اسبانى" data-price="15">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/فلفل الوان.jpg" alt="فلفل الوان">
+                            <h3>فلفل الوان</h3>
+                            <p class="price">40 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="فلفل الوان" data-price="40">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/كوسة.jpg" alt="كوسة">
+                            <h3>كوسة</h3>
+                            <p class="price">18 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="كوسة" data-price="18">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/جزر.jpg" alt="جزر">
+                            <h3>جزر</h3>
+                            <p class="price">18 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="جزر" data-price="18">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/بقدونس.jpg" alt="بقدونس">
+                            <h3>بقدونس</h3>
+                            <p class="price">2.5 ج.م / حزمة</p>
+                            <button class="add-to-cart-btn" data-name="بقدونس" data-price="2.5">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/شبت.jpg" alt="شبت">
+                            <h3>شبت</h3>
+                            <p class="price">2.5 ج.م / حزمة</p>
+                            <button class="add-to-cart-btn" data-name="شبت" data-price="2.5">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/كسبرة.jpg" alt="كسبرة">
+                            <h3>كسبرة</h3>
+                            <p class="price">2.5 ج.م / حزمة</p>
+                            <button class="add-to-cart-btn" data-name="كسبرة" data-price="2.5">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/ليمون.jpg" alt="ليمون بلدى">
+                            <h3>ليمون يلدى</h3>
+                            <p class="price">30 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="ليمون بلدى" data-price="30">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/كرنب كبير.jpg" alt="كرنب كبير">
+                            <h3>كرنب كبير</h3>
+                            <p class="price">20 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="كرنب كبير" data-price="20">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/فاصوليا.jpg" alt="فاصوليا">
+                            <h3>فاصوليا</h3>
+                            <p class="price">18 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="فاصوليا" data-price="18">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/قلقاس.jpg" alt="قلقاس">
+                            <h3>قلقاس</h3>
+                            <p class="price">20 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="قلقاس" data-price="20">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/بسلة.jpg" alt="بسلة جديدة">
+                            <h3>بسلة جديدة</h3>
+                            <p class="price">20 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="بسلة جديدة" data-price="20">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/بطاطا.jpg" alt="بطاطا">
+                            <h3>بطاطا</h3>
+                            <p class="price">15 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="بطاطا" data-price="15">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/ثوم صينى.jpg" alt="ثوم صينى">
+                            <h3>ثوم صينى</h3>
+                            <p class="price">35 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="ثوم صينى" data-price="35">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/جوافة.jpg" alt="جوافة">
+                            <h3>جوافة</h3>
+                            <p class="price">26 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="جوافة" data-price="26">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/رمان.jpg" alt="رمان">
+                            <h3>رمان</h3>
+                            <p class="price">35 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="رمان" data-price="35">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/برتقال.jpg" alt="برتقال">
+                            <h3>برتقال</h3>
+                            <p class="price">25 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="برتقال" data-price="25">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/تفاح امريكانى.jpg" alt="تفاح امريكانى">
+                            <h3>تفاح امريكانى</h3>
+                            <p class="price">65 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="تفاح امريكانى" data-price="65">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/يوسفى.jpg" alt="يوسفى">
+                            <h3>يوسفى</h3>
+                            <p class="price">20 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="يوسفى" data-price="20">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/موز جامبو.jpg" alt="موز جامبو">
+                            <h3>موز جامبو</h3>
+                            <p class="price">35 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="موز جامبو" data-price="35">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/كاكا.jpg" alt="كاكا">
+                            <h3>كاكا</h3>
+                            <p class="price">40 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="كاكا" data-price="40">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/كنتالوب.jpg" alt="كنتالوب">
+                            <h3>كنتالوب</h3>
+                            <p class="price">20 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="كنتالوب" data-price="20">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/عنب بلدى.jpg" alt="عنب بلدى">
+                            <h3>عنب بلدى</h3>
+                            <p class="price">25 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="عنب بلدى" data-price="25">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/بلح سمانى.jpg" alt="بلح سلمانى">
+                            <h3>بلح سلمانى</h3>
+                            <p class="price">25 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="بلح سلمانى" data-price="25">أضف للسلة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Poultry Page Section -->
+        <section id="poultry" class="page-section">
+            <div class="page-main">
+                <div class="container">
+                    <h1 class="page-title">عروض الدواجن الطازجة</h1>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <img src="images/chicken-whole.jpg" alt="دجاج كامل">
+                            <h3>دجاج كامل</h3>
+                            <p class="price">70 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="دجاج كامل" data-price="70">أضف للسلة</button>
+                        </div>
+                            <div class="product-card">
+                            <img src="images/Baladi-chicken.jpg" alt="فراخ بلدى">
+                            <h3>فراخ بلدى</h3>
+                            <p class="price">130 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="فراخ بلدى" data-price="130">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/chicken-breast.jpg" alt="صدر دجاج">
+                            <h3>صدر دجاج منزوع العظم</h3>
+                            <p class="price">165 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="صدر دجاج منزوع العظم" data-price="165">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/افخاد دجاج.jpg" alt="أفخاذ دجاج">
+                            <h3>أفخاذ دجاج</h3>
+                            <p class="price">80 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="أفخاذ دجاج" data-price="80">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/شيش طاووق.jpg" alt="شيش">
+                            <h3>شيش</h3>
+                            <p class="price">160 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="شيش" data-price="160">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/اجنحة.jpg" alt="اجنحة">
+                            <h3>اجنحة</h3>
+                            <p class="price">60 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="اجنحة" data-price="60">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/كبد وقوانص.jpg" alt="كبد وقوانص">
+                            <h3>كبد وقوانص</h3>
+                            <p class="price">95 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="كبد وقوانص" data-price="95">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/شاورما فراخ.jpg" alt="شاورما">
+                            <h3>شاورما فراخ</h3>
+                            <p class="price">160 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="شاورما فراخ" data-price="160">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/دبوس فراخ.jpg" alt="دبوس">
+                            <h3>دبوس</h3>
+                            <p class="price">100 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="دبوس فراخ" data-price="100">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/صفح دجاج.jpg" alt="صفح">
+                            <h3>صفح</h3>
+                            <p class="price">73 ج.م / كجم</p>
+                            <button class="add-to-cart-btn" data-name="صفح دجاج" data-price="73">أضف للسلة</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/eggs.jpg" alt="بيض">
+                            <h3>بيض أبيض</h3>
+                            <p class="price">75 ج.م / 30 بيضة</p>
+                            <button class="add-to-cart-btn" data-name="بيض أبيض" data-price="75">أضف للسلة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Results Page Section -->
+        <section id="search-results" class="page-section">
+            <div class="page-main">
+                <div class="container">
+                    <h1 class="page-title">نتائج البحث</h1>
+                    <div class="product-grid" id="search-results-grid">
+                        <!-- Search results will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Page Section -->
+        <section id="cart-page" class="page-section">
+            <div class="page-main">
+                <div class="container">
+                    <h1 class="page-title">سلة المشتريات</h1>
+                    <div class="cart-items-container" id="cart-items-container">
+                        <!-- Cart items will be dynamically inserted here -->
+                    </div>
+                    <div class="cart-summary">
+                        <h3>الإجمالي: <span id="cart-total">0</span> ج.م</h3>
+                        <button class="btn" style="margin-top: 1rem;" id="checkout-btn">إتمام الطلب</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Page Section -->
+        <section id="checkout-page" class="page-section">
+            <div class="page-main">
+                <div class="container">
+                    <h1 class="page-title">بيانات التوصيل</h1>
+                    <form class="checkout-form" id="checkout-form">
+                        <div class="form-group">
+                            <label for="customer-name">اسم العميل *</label>
+                            <input type="text" id="customer-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-mobile">رقم الموبايل *</label>
+                            <input type="tel" id="customer-mobile" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-address">العنوان *</label>
+                            <input type="text" id="customer-address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-building">رقم العمارة *</label>
+                            <input type="text" id="customer-building" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-apartment">رقم الشقة *</label>
+                            <input type="text" id="customer-apartment" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-mark">علامة مميزة (اختياري)</label>
+                            <input type="text" id="customer-mark">
+                        </div>
+                        <button type="submit" class="submit-order-btn">إرسال الطلب عبر الواتساب</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>عن اسواق ابو ساجد</h3>
+                    <p>نحن متجركم الموثوق لجميع احتياجاتكم من المنتجات الطازجة والعضوية. نحرص على توفير أفضل جودة بأسعار تنافسية.</p>
+                </div>
+                <div class="footer-section contact">
+                    <h3>بيانات التواصل</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> شارع النخيل، الرياض، المملكة العربية السعودية</p>
+                    <p><i class="fas fa-phone"></i> +966 50 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@freshstore.com</p>
+                </div>
+                <div class="footer-section social">
+                    <h3>تابعنا على</h3>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 اسواق ابو ساجد. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Internal JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- UPDATED Product Database ---
+            const allProducts = [
+                // Vegetables & Fruits
+                { name: 'طماطم طازجة', price: 30, category: 'خضروات', image: 'images/tomato.jpg' },
+                { name: 'خيار', price: 25, category: 'خضروات', image: 'images/cucumber.jpg' },
+                { name: 'بطاطس', price: 20, category: 'خضروات', image: 'images/بطاطس.jpg' },
+                { name: 'بصل ابيض', price: 15, category: 'خضروات', image: 'images/بصل ابيض.jpg' },
+                { name: 'بصل احمر', price: 13, category: 'خضروات', image: 'images/بصل احمر.jpg' },
+                { name: 'باذنجان رومى', price: 13, category: 'خضروات', image: 'images/باذنجان رومى.jpg' }, 
+                { name: 'باذنجان ابيض', price: 13, category: 'خضروات', image: 'images/باذنجان ابيض.jpg' },
+                { name: 'باذنجان اسود', price: 13, category: 'خضروات', image: 'images/باذنجان اسود.jpg' },
+                { name: 'فلفل رومى', price: 15, category: 'خضروات', image: 'images/فلفل رومى.jpg' },
+                { name: 'فلفل حامى', price: 15, category: 'خضروات', image: 'images/فلفل حامى.jpg' },
+                { name: 'فلفل اسبانى', price: 15, category: 'خضروات', image: 'images/فلفل اسبانى.jpg' },
+                { name: 'فلفل الوان', price: 40, category: 'خضروات', image: 'images/فلفل الوان.jpg' },
+                { name: 'كوسة', price: 18, category: 'خضروات', image: 'images/كوسة.jpg' },
+                { name: 'جزر', price: 18, category: 'خضروات', image: 'images/جزر.jpg' },
+                { name: 'بقدونس', price: 2.5, category: 'خضروات', image: 'images/بقدونس.jpg' },
+                { name: 'شبت', price: 2.5, category: 'خضروات', image: 'images/شبت.jpg' },
+                { name: 'كسبرة', price: 2.5, category: 'خضروات', image: 'images/كسبرة.jpg' },
+                { name: 'سلق قلقاس', price: 3, category: 'خضروات', image: 'images/سلق قلقاس.jpg' },
+                { name: 'بصل اخضر', price: 5, category: 'خضروات', image: 'images/بصل اخضر.jpg' },
+                { name: '3 نعناع', price: 5, category: 'خضروات', image: 'images/نعناع.jpg' },
+                { name: 'سبانخ', price: 10, category: 'خضروات', image: 'images/سبانخ.jpg' },
+                { name: 'كرنب سلطة', price: 20, category: 'خضروات', image: 'images/كرنب سلطة.jpg' },
+                { name: 'ليمون بلدى', price: 30, category: 'خضروات', image: 'images/ليمون.jpg' },
+                { name: 'كرنب كبير', price: 20, category: 'خضروات', image: 'images/كرنب كبير.jpg' },
+                { name: 'فاصوليا', price: 18, category: 'خضروات', image: 'images/فاصوليا.jpg' },
+                { name: 'قلقاس', price: 20, category: 'خضروات', image: 'images/قلقاس.jpg' },
+                { name: 'بسلة جديدة', price: 20, category: 'خضروات', image: 'images/بسلة.jpg' },
+                { name: 'بطاطا', price: 15, category: 'خضروات', image: 'images/بطاطا.jpg' },
+                { name: 'ثوم صينى', price: 35, category: 'خضروات', image: 'images/ثوم صينى.jpg' },
+
+                { name: 'جوافة', price: 26, category: 'فواكه', image: 'images/جوافة.jpg' },
+                { name: 'رمان', price: 35, category: 'فواكه', image: 'images/رمان.jpg' },
+                { name: 'برتقال', price: 25, category: 'فواكه', image: 'images/برتقال.jpg' }, 
+                { name: 'تفاح امريكانى', price: 65, category: 'فواكه', image: 'images/تفاح امريكانى.jpg' },
+                { name: 'يوسفى', price: 20, category: 'فواكه', image: 'images/يوسفى.jpg' },
+                { name: 'موز جامبو', price: 35, category: 'فواكه', image: 'images/موز جامبو.jpg' },
+                { name: 'كاكا', price: 40, category: 'فواكه', image: 'images/كاكا.jpg' },
+                { name: 'كنتالوب', price: 20, category: 'فواكه', image: 'images/كنتالوب.jpg' },
+                { name: 'عنب بلدى', price: 25, category: 'فواكه', image: 'images/عنب بلدى.jpg' },
+                { name: 'بلح سمانى', price: 25, category: 'فواكه', image: 'images/بلح سمانى.jpg' },
+
+               // Poultry & Eggs
+                { name: 'دجاج كامل', price: 70, category: 'دواجن', image: 'images/chicken-whole.jpg' },
+                { name: 'فراخ بلدى', price: 130, category: 'دواجن', image: 'images/Baladi-chicken.jpg' },
+                { name: 'صدر دجاج منزوع العظم', price: 165, category: 'دواجن', image: 'images/chicken-breast.jpg' },
+                { name: 'أفخاذ دجاج', price: 80, category: 'دواجن', image: 'images/افخاد دجاج.jpg' },
+                { name: 'شيش', price: 160, category: 'دواجن', image: 'images/شيش طاووق.jpg' },
+                { name: 'اجنحة', price: 60, category: 'دواجن', image: 'images/اجنحة.jpg' },
+                { name: 'كبد وقوانص', price: 95, category: 'دواجن', image: 'images/كبد وقوانص.jpg' },
+                { name: 'شاورما فراخ', price: 160, category: 'دواجن', image: 'images/شاورما فراخ.jpg' },
+                { name: 'دبوس فراخ', price: 100, category: 'دواجن', image: 'images/دبوس فراخ.jpg' },
+                { name: 'صفح دجاج', price: 73, category: 'دواجن', image: 'images/صفح دجاج.jpg' },
+                { name: 'بيض أبيض', price: 75, category: 'بيض', image: 'images/eggs.jpg' },
+            ];
+
+            // --- SPA Page Navigation ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page-section');
+            const cartIcon = document.getElementById('cart-icon-trigger');
+            const shopNowBtn = document.getElementById('shop-now-btn');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            function showPage(pageId) {
+                pages.forEach(page => page.classList.remove('active'));
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+                
+                const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+                if(activeLink) {
+                    activeLink.classList.add('active');
+                }
+                
+                if (pageId === 'cart-page') {
+                    displayCart();
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = link.getAttribute('data-page');
+                    showPage(pageId);
+                });
+            });
+
+            if (cartIcon) cartIcon.addEventListener('click', () => showPage('cart-page'));
+            if (shopNowBtn) shopNowBtn.addEventListener('click', () => showPage('vegetables'));
+            if(checkoutBtn) checkoutBtn.addEventListener('click', () => showPage('checkout-page'));
+
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('is-active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            // --- Search & Category Logic ---
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.getElementById('search-btn');
+            const categoryLinks = document.querySelectorAll('.category-link');
+            const searchResultsGrid = document.getElementById('search-results-grid');
+            const searchResultsPage = document.getElementById('search-results');
+
+            function displayProducts(products, container) {
+                container.innerHTML = ''; // Clear previous results
+                if (products.length ===0) {
+                    container.innerHTML = '<p style="text-align: center; width: 100%; grid-column: 1 / -1;">لم يتم العثور على منتجات.</p>';
+                    return;
+                }
+                products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p class="price">${product.price} ج.م / كجم</p>
+                        <button class="add-to-cart-btn" data-name="${product.name}" data-price="${product.price}">أضف للسلة</button>
+                    `;
+                    container.appendChild(productCard);
+                });
+                // Re-attach event listeners for new buttons
+                attachAddToCartListeners();
+            }
+
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                const filteredProducts = allProducts.filter(product =>
+                    product.name.toLowerCase().includes(searchTerm)
+                );
+                displayProducts(filteredProducts, searchResultsGrid);
+                showPage('search-results');
+            }
+
+            function filterByCategory(category) {
+                const filteredProducts = category === 'all' 
+                    ? allProducts 
+                    : allProducts.filter(product => product.category === category);
+                displayProducts(filteredProducts, searchResultsGrid);
+                showPage('search-results');
+            }
+
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    categoryLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    const category = link.getAttribute('data-category');
+                    filterByCategory(category);
+                });
+            });
+
+
+            // --- PROFESSIONAL Best Offers Slider Logic ---
+            const sliderContainer = document.getElementById('offers-slider-container');
+            const sliderWrapper = document.getElementById('offers-slider-wrapper');
+            const offerSlides = document.querySelectorAll('.offer-slide');
+            const dotsContainer = document.getElementById('offers-slider-dots');
+            const offersNextBtn = document.getElementById('offers-next');
+            const offersPrevBtn = document.getElementById('offers-prev');
+            
+            let offersSlideIndex = 0;
+            let autoplayInterval;
+            const totalOfferSlides = offerSlides.length;
+            
+            // Create dots
+            function createDots() {
+                for (let i = 0; i < totalOfferSlides; i++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            // Update active dot
+            function updateActiveDot() {
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[offersSlideIndex].classList.add('active');
+            }
+            
+            function showOffersSlide() {
+                const slideWidth = offerSlides[0].offsetWidth + 24; // card width + gap
+                
+                // CHANGE: The offset is now POSITIVE to move slider from LEFT to RIGHT
+                const offset = offersSlideIndex * slideWidth;
+                sliderWrapper.style.transform = `translateX(${offset}px)`;
+                updateActiveDot();
+            }
+
+            function nextOffersSlide() {
+                offersSlideIndex = (offersSlideIndex + 1) % totalOfferSlides;
+                showOffersSlide();
+            }
+
+            function prevOffersSlide() {
+                offersSlideIndex = (offersSlideIndex - 1 + totalOfferSlides) % totalOfferSlides;
+                showOffersSlide();
+            }
+
+            function goToSlide(index) {
+                offersSlideIndex = index;
+                showOffersSlide();
+            }
+
+            function startAutoplay() {
+                autoplayInterval = setInterval(nextOffersSlide, 3000);
+            }
+
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+            }
+
+            // Initialize slider
+            createDots();
+            showOffersSlide();
+            startAutoplay();
+
+            // Event Listeners
+            if (offersNextBtn) offersNextBtn.addEventListener('click', () => { stopAutoplay(); nextOffersSlide(); startAutoplay(); });
+            if (offersPrevBtn) offersPrevBtn.addEventListener('click', () => { stopAutoplay(); prevOffersSlide(); startAutoplay(); });
+            
+            sliderContainer.addEventListener('mouseenter', stopAutoplay);
+            sliderContainer.addEventListener('mouseleave', startAutoplay);
+
+            // Add resize listener to recalculate on window resize
+            window.addEventListener('resize', showOffersSlide);
+
+
+            // --- Shopping Cart Logic ---
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCountElement = document.getElementById('cart-count');
+
+            function updateCartUI() {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCountElement.textContent = totalItems;
+            }
+
+            function saveCart() {
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+
+            function addToCart(name, price) {
+                const existingItem = cart.find(item => item.name === name);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ name, price, quantity: 1 });
+                }
+                saveCart();
+                updateCartUI();
+                showNotification(`تمت إضافة "${name}" إلى السلة!`);
+            }
+
+            function removeFromCart(name) {
+                cart = cart.filter(item => item.name !== name);
+                saveCart();
+                updateCartUI();
+                displayCart();
+                showNotification(`تم حذف "${name}" من السلة.`);
+            }
+
+            function displayCart() {
+                const cartContainer = document.getElementById('cart-items-container');
+                const cartTotalElement = document.getElementById('cart-total');
+                cartContainer.innerHTML = '';
+                if (cart.length === 0) {
+                    cartContainer.innerHTML = '<p>سلتك فارغة.</p>';
+                    cartTotalElement.textContent = '0';
+                    return;
+                }
+                let total = 0;
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    const cartItemDiv = document.createElement('div');
+                    cartItemDiv.className = 'cart-item';
+                    cartItemDiv.innerHTML = `
+                        <div>
+                            <h4>${item.name}</h4>
+                            <span class="item-details">${item.quantity} × ${item.price} ج.م = ${itemTotal} ج.م</span>
+                        </div>
+                        <span class="remove-btn" data-name="${item.name}"><i class="fas fa-trash"></i></span>
+                    `;
+                    cartContainer.appendChild(cartItemDiv);
+                });
+                cartTotalElement.textContent = total;
+            }
+            
+            function attachAddToCartListeners() {
+                const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const name = button.getAttribute('data-name');
+                        const price = parseFloat(button.getAttribute('data-price'));
+                        addToCart(name, price);
+                    });
+                });
+            }
+
+            document.getElementById('cart-items-container').addEventListener('click', (e) => {
+                if (e.target.closest('.remove-btn')) {
+                    const name = e.target.closest('.remove-btn').dataset.name;
+                    removeFromCart(name);
+                }
+            });
+
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); color: white; padding: 1rem 2rem; border-radius: 5px; z-index: 10000; font-weight: bold;`;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.remove(), 2000);
+            }
+
+            // Initial attachment
+            attachAddToCartListeners();
+
+            // --- Checkout and WhatsApp Submission ---
+            const checkoutForm = document.getElementById('checkout-form');
+            checkoutForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const customerName = document.getElementById('customer-name').value;
+                const customerMobile = document.getElementById('customer-mobile').value;
+                const customerAddress = document.getElementById('customer-address').value;
+                const customerBuilding = document.getElementById('customer-building').value;
+                const customerApartment = document.getElementById('customer-apartment').value;
+                const customerMark = document.getElementById('customer-mark').value;
+
+                if (cart.length === 0) {
+                    showNotification('سلتك فارغة، لا يمكن إتمام الطلب.');
+                    return;
+                }
+
+                let orderDetails = 'طلب جديد من اسواق ابو ساجد\n\n';
+                orderDetails += '--- بيانات العميل ---\n';
+                orderDetails += `الاسم: ${customerName}\n`;
+                orderDetails += `الموبايل: ${customerMobile}\n`;
+                orderDetails += `العنوان: ${customerAddress}\n`;
+                orderDetails += `رقم العمارة: ${customerBuilding}\n`;
+                orderDetails += `رقم الشقة: ${customerApartment}\n`;
+                if (customerMark) { orderDetails += `علامة مميزة: ${customerMark}\n`; }
+                orderDetails += '\n--- تفاصيل الطلب ---\n';
+                
+                let total = 0;
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    orderDetails += `${item.name}: ${item.quantity} × ${item.price} ج.م = ${itemTotal} ج.م\n`;
+                });
+                orderDetails += '\n---------------------\n';
+                orderDetails += `الإجمالي: ${total} ج.م`;
+
+                const phoneNumber = '201030566078';
+                const message = encodeURIComponent(orderDetails);
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+
+                cart = []; saveCart(); updateCartUI(); checkoutForm.reset();
+                showNotification('تم إرسال طلبك بنجاح! شكراً لتسوقك معنا.');
+                showPage('home');
+            });
+
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
