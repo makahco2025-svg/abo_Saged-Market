@@ -525,11 +525,13 @@
         @media(max-width: 768px) {
             .main-header .container {
                 flex-direction: column;
+                align-items: center;
             }
             
             .main-nav {
-                margin-top: 1rem;
+                display: none;
                 width: 100%;
+                margin-top: 1rem;
             }
 
             .main-nav ul {
@@ -542,15 +544,15 @@
                 margin: 0.5rem 0;
             }
 
-            .menu-toggle {
-                display: block;
-                position: absolute;
-                top: 1.5rem;
-                left: 1.5rem;
+            .header-actions {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding: 0 1rem;
             }
 
-            .main-nav {
-                display: none;
+            .menu-toggle {
+                display: block;
             }
             
             .main-nav.is-active {
@@ -601,12 +603,15 @@
                     <li><a href="#contact">تواصل معنا</a></li>
                 </ul>
             </nav>
-            <div class="cart-icon" id="cart-icon-trigger">
-                <i class="fas fa-shopping-cart"></i>
-                <span id="cart-count">0</span>
-            </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+            <!-- Cart and Menu Toggle are now grouped -->
+            <div class="header-actions">
+                <div class="cart-icon" id="cart-icon-trigger">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
     </header>
@@ -685,7 +690,7 @@
                              <!-- Offer Slide 5 -->
                              <div class="offer-slide">
                                 <div class="product-card">
-                                    <img src="images/بطاطس.jpg" alt="بطاطس">
+                                    <img src="images/potato.jpg" alt="بطاطس">
                                     <h3>بطاطس</h3>
                                     <p class="price">20 ج.م / كجم</p>
                                     <button class="add-to-cart-btn" data-name="بطاطس" data-price="20">أضف للسلة</button>
@@ -722,7 +727,7 @@
                             <button class="add-to-cart-btn" data-name="خيار" data-price="18">أضف للسلة</button>
                         </div>
                         <div class="product-card">
-                            <img src="images/بطاطس.jpg" alt="بطاطس">
+                            <img src="images/potato.jpg" alt="بطاطس">
                             <h3>بطاطس</h3>
                             <p class="price">10 ج.م / كجم</p>
                             <button class="add-to-cart-btn" data-name="بطاطس" data-price="10">أضف للسلة</button>
@@ -749,7 +754,7 @@
                             <img src="images/باذنجان ابيض.jpg" alt="باذنجان أبيض">
                             <h3>باذنجان أبيض</h3>
                             <p class="price">13 ج.م / كجم</p>
-                            <button class="add-to-cart-btn" data-name="باذنجان ابيض" data-price="13">أضف للسلة</button>
+                            <button class="add-to-cart-btn" data-name="باذنجان أبيض" data-price="13">أضف للسلة</button>
                         </div>
                         <div class="product-card">
                             <img src="images/باذنجان اسود.jpg" alt="باذنجان اسود">
@@ -1092,12 +1097,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // --- UPDATED Product Database ---
+            // --- Product Database ---
             const allProducts = [
                 // Vegetables & Fruits
                 { name: 'طماطم طازجة', price: 30, category: 'خضروات', image: 'images/tomato.jpg' },
                 { name: 'خيار', price: 25, category: 'خضروات', image: 'images/cucumber.jpg' },
-                { name: 'بطاطس', price: 20, category: 'خضروات', image: 'images/بطاطس.jpg' },
+                { name: 'بطاطس', price: 20, category: 'خضروات', image: 'images/potato.jpg' },
                 { name: 'بصل ابيض', price: 15, category: 'خضروات', image: 'images/بصل ابيض.jpg' },
                 { name: 'بصل احمر', price: 13, category: 'خضروات', image: 'images/بصل احمر.jpg' },
                 { name: 'باذنجان رومى', price: 13, category: 'خضروات', image: 'images/باذنجان رومى.jpg' }, 
